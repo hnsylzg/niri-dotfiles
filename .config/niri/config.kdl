@@ -286,6 +286,9 @@ spawn-at-startup "swww-daemon"
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+// spawn-at-startup "wl-clip-persist --clipboard regular --all-mime-type-regex '(?i)^(?!image/x-inkscape-svg).+'"
+// spawn-at-startup "wl-paste --watch cliphist store"
+// spawn-at-startup "wl-paste --watch pkill -RTMIN+9 waybar"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
