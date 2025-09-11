@@ -392,6 +392,7 @@ binds {
     Mod+B hotkey-overlay-title="Open a Borower: chrome" { spawn "google-chrome-stable"; }
     Mod+X hotkey-overlay-title="Open Graphical file manager: thunar" { spawn "thunar"; }
     Mod+C hotkey-overlay-title="Open code editor: visual studio code" { spawn "code"; }
+    Mod+Shift+W { spawn "waypaper"; }
     
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
