@@ -279,7 +279,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "swww-daemon"
 // spawn-sh-at-startup "waypaper --restore --backend swww"
@@ -289,6 +289,7 @@ spawn-at-startup "waybar"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular --all-mime-type-regex '(?i)^(?!image/x-inkscape-svg).+'"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "until pgrep -x waybar >/dev/null; do sleep 0.3; done; sleep 2; wl-paste --watch pkill -RTMIN+9 waybar"
+// spawn-sh-at-startup "wl-paste --watch pkill -RTMIN+9 waybar"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -644,4 +645,16 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl pause"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
+    Alt+Space allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    Alt+Return allow-when-locked=true { spawn-sh "playerctl stop"; }
+    Alt+Left allow-when-locked=true { spawn-sh "playerctl previous"; }
+    Alt+Right allow-when-locked=true { spawn-sh "playerctl next"; }
+    Alt+Up allow-when-locked=true { spawn-sh "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"; }
+    Alt+Down allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
 }
