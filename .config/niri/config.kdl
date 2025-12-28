@@ -7,15 +7,6 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 
-environment {
-    QT_QPA_PLATFORM "wayland;xcb"
-    QT_QPA_PLATFORMTHEME "qt6ct"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-    // LIBGL_ALWAYS_SOFTWARE "true"
-    // WLR_RENDERER_ALLOW_SOFTWARE "1"
-    DISPLAY ":0"
-}
-
 input {
     keyboard {
         xkb {
@@ -297,7 +288,9 @@ spawn-sh-at-startup "until pgrep -x waybar >/dev/null; do sleep 0.3; done; sleep
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+}
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
