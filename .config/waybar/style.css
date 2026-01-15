@@ -10,11 +10,9 @@
 
 * {
     border: none;
-    border-radius: 10px;
-    font-family: monospace, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: monospace;
     font-size: 13px;
     font-weight: bold;
-    min-height: 30px;
 }
 
 window#waybar {
@@ -36,7 +34,7 @@ window#waybar.hidden {
     margin-left: 8px;
     margin-bottom: 0px;
     padding: 0 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     /* background: #2a3139; */
     /* background: rgba(42, 49, 57, 0.8); */
     transition: none;
@@ -60,8 +58,8 @@ window#waybar.hidden {
 #clock { color: #e68da5; } /* 保留特殊的右边距 */
 #keyboard-state { color: #ac92c6; }
 #language { color: #ac92c6; min-width: 16px; }
-#idle_inhibitor { color: #ac92c6; }
-#custom-clipboard { color: #f2cdcd; }
+#idle_inhibitor { color: #ac92c6; padding-left: 9px; padding-right: 15px; }
+#custom-clipboard { color: #f2cdcd; padding-left: 11px; padding-right: 13px; }
 #custom-update { color: #c0caf5; }
 #custom-powermenu { color: #f28fad; margin-right: 8px; padding-right: 14px; } /* 保留特殊的左边距 */
 
@@ -92,7 +90,7 @@ window#waybar.hidden {
     color: #dba986;
     margin-top: 6px;
     margin-left: 8px;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 #workspaces button.focused, #workspaces button.active { color: #0a4511; background: #83a3a0; }
 #workspaces button:hover { background: #fdbdbd; border: #e69e9e; padding: 0 0; }
