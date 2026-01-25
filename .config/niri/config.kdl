@@ -349,8 +349,12 @@ window-rule {
     open-floating true
 }
 window-rule {
+    match title="^(Rename|File Operation Progress|重命名|文件操作进度)(.*)$" 
+    open-floating true
+}
+window-rule {
     // This app-id regular expression will work for both:
-    match app-id=r#"^floating_shell$"#
+    match app-id=r#"^(waypaper|floating_shell)$"#
     open-floating true
 }
 
