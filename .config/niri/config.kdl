@@ -127,7 +127,7 @@ layout {
     // empty-workspace-above-first
     // default-column-display "tabbed"
     // default-column-display "normal"
-    // background-color "transparent"
+    background-color "transparent"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
