@@ -62,12 +62,14 @@ function check_launcher() {
 }
 
 # 解析参数
-while getopts "hcp:" option; do
+while getopts "hcl:p:" option; do
   case "${option}" in
     h) echo "${usage}"
        exit 0
        ;;
     c) enable_confirmation=true
+       ;;
+    l) rofi_override_location="${OPTARG}"
        ;;
     p) preferred_launcher="${OPTARG}"
        check_launcher "${preferred_launcher}"
@@ -115,6 +117,20 @@ function prepare_launcher() {
     launcher_exe="rofi"
     launcher_options=(-dmenu -i -lines "${menu_nrows}" -p "电源菜单: " \
       "${ROFI_OPTIONS[@]}")
+  # 如果指定了位置覆盖，则通过 -theme-str 注入覆盖配置
+    if [[ -n "${rofi_override_location}" ]]; then
+      if [[ "${rofi_override_location}" == "center" ]]; then
+        # 居中显示，并放大尺寸（宽度变宽、字体变大、内边距增大）
+        launcher_options+=(
+          -theme-str 'window { location: center; width: 220px; x-offset: 0; y-offset: 0; }'
+          # -theme-str 'mainbox { padding: 15px; }'
+          -theme-str 'element { padding: 3px; }'
+          -theme-str 'configuration { font: "NotoSans Nerd Font 12"; }'
+        )     
+      elif [[ "${rofi_override_location}" == "northeast" ]]; then
+        launcher_options+=(-theme-str 'window { location: north east; x-offset: -6; y-offset: 6; }')
+      fi
+    fi
   elif [[ "$1" == "zenity" ]]; then
     launcher_exe="zenity"
     launcher_options=(--list --title="${ZENITY_TITLE}" --text="${ZENITY_TEXT}" \

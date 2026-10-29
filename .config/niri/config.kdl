@@ -645,7 +645,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+Shift+E { quit; }
-    Mod+Shift+E hotkey-overlay-title="Open PowerMenu" { spawn "~/.config/waybar/scripts/powermenu.sh"; }
+    Mod+Shift+E hotkey-overlay-title="Open PowerMenu" { spawn "sh" "-c" "~/.config/waybar/scripts/powermenu.sh -l center"; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
